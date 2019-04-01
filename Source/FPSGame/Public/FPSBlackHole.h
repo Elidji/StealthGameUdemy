@@ -30,6 +30,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* SphereForce;
 
+	UPROPERTY(EditAnywhere, Category = "Attributs")
+	float BHStrentgh = -2000.f;
+
 	// Marked with ufunction to bind to overlap event
 	UFUNCTION()
 	void OverlapSphereDestroy(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

@@ -52,9 +52,9 @@ void AFPSBlackHole::Tick(float DeltaTime)
 	// Paramètres nécessaire à la méthode AddRadialForce
 	FVector BHLocation = GetActorLocation();
 	float BHRadius = SphereForce->GetScaledSphereRadius();
-	float BHStrentgh = -2000.f;
+	//float BHStrentgh = -2000.f;
 
-	// Recherche des components pouvant être gérés physiquement
+	/// Recherche des components pouvant être gérés physiquement
 	TArray<UPrimitiveComponent*> OverlappingComps;
 	SphereForce->GetOverlappingComponents(OverlappingComps);
 
