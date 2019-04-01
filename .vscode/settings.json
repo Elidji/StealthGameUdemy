@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"E:/Documents/Unreal Projects/StealthGameUdemy/.git": true,
+		"E:/Documents/Unreal Projects/StealthGameUdemy/.vs": true,
+		"E:/Documents/Unreal Projects/StealthGameUdemy/.vscode": true,
+		"E:/Documents/Unreal Projects/StealthGameUdemy/Content": true,
+		"E:/Documents/Unreal Projects/StealthGameUdemy/Intermediate": true,
+		"E:/Documents/Unreal Projects/StealthGameUdemy/Saved": true
+	}
+}

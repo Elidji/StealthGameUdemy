@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "FPSGame (Debug)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Win64 Debug Build",
+			"program": "E:\\Documents\\Unreal Projects\\StealthGameUdemy\\Binaries\\Win64\\FPSGame-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGame (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Win64 DebugGame Build",
+			"program": "E:\\Documents\\Unreal Projects\\StealthGameUdemy\\Binaries\\Win64\\FPSGame-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGame (Development)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Win64 Development Build",
+			"program": "E:\\Documents\\Unreal Projects\\StealthGameUdemy\\Binaries\\Win64\\FPSGame.exe",
+			"args": [
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGame (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Win64 Shipping Build",
+			"program": "E:\\Documents\\Unreal Projects\\StealthGameUdemy\\Binaries\\Win64\\FPSGame-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGame (Test)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Win64 Test Build",
+			"program": "E:\\Documents\\Unreal Projects\\StealthGameUdemy\\Binaries\\Win64\\FPSGame-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGameEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Win64 Debug Build",
+			"program": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"E:\\Documents\\Unreal Projects\\StealthGameUdemy\\FPSGame.uproject"
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGameEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Win64 DebugGame Build",
+			"program": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"E:\\Documents\\Unreal Projects\\StealthGameUdemy\\FPSGame.uproject"
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "FPSGameEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Win64 Development Build",
+			"program": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"E:\\Documents\\Unreal Projects\\StealthGameUdemy\\FPSGame.uproject"
+			],
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "D:\\Epic SSD Sata\\UE_4.21\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"E:\\Documents\\Unreal Projects\\StealthGameUdemy\\FPSGame.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "D:\\Epic SSD Sata\\UE_4.21"
+		}
+	]
+}
