@@ -28,10 +28,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UDecalComponent* DecalComp;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
-	float LPForce = 1000.f;
+	UPROPERTY(EditInstanceOnly, Category = "Launchpad")
+	float LPForce;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Parameters")
+	UPROPERTY(EditInstanceOnly, Category = "Launchpad")
 	FVector LPAngle;
 
 	UFUNCTION()

@@ -5,8 +5,8 @@
 #include "Components/BoxComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/DecalComponent.h"
-#include "FPSCharacter.h"
-#include "Math/Vector.h"
+#include "GameFramework/character.h"
+#include "Components/PrimitiveComponent.h"
 
 // Sets default values
 AFPSLaunchPad::AFPSLaunchPad()
@@ -31,27 +31,41 @@ AFPSLaunchPad::AFPSLaunchPad()
 
 	// Permet de lier l'événement OnComponentBeginOverlap à la méthode HandleOverlap
 	OverlapComp->OnComponentBeginOverlap.AddDynamic(this, &AFPSLaunchPad::HandleOverlap);
+
+	LPForce = 1500.f;
+
+	LPAngle = FVector(0.f, 0.f, 2.f);
 }
 
 void AFPSLaunchPad::HandleOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	AFPSCharacter* MyPawn = Cast<AFPSCharacter>(OtherActor);
+	// Permet de lancer le joueur dans la direction qu'il regarde
+	// FVector LaunchVelocity = LPForce*(MyPawn->GetActorForwardVector());
 
-	if (MyPawn)
+	/// Permet de lancer le joueur dans la direction du launchpad 
+	FVector LaunchVelocity = LPForce * (this->GetActorForwardVector() + LPAngle);
+
+	ACharacter* OtherCharacter = Cast<ACharacter>(OtherActor);
+	if (OtherCharacter)
 	{
-		// Permet de lancer le joueur dans la direction qu'il regarde
-		// FVector LaunchVelocity = LPForce*(MyPawn->GetActorForwardVector());
+		UE_LOG(LogTemp, Warning, TEXT("Player overlapped with launchpad !"));
 
-		/// Permet de lancer le joueur dans la direction du launchpad 
-		FVector LaunchVelocity = LPForce * (this->GetActorForwardVector() + LPAngle) ;
-
-		MyPawn->LaunchCharacter
+		OtherCharacter->LaunchCharacter
 		(
 			LaunchVelocity,
 			true,
-			false
+			true
 		);
 	}
+	else //if (OtherComp && OtherComp->IsSimulatingPhysics())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Cube overlapped with launchpad !"));
 
-	UE_LOG(LogTemp, Warning, TEXT("Overlapped with launchpad !"));
+		OtherComp->AddImpulse
+		(
+			LaunchVelocity,
+			"none",
+			true
+		);
+	}
 }
