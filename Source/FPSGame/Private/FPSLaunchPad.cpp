@@ -34,7 +34,7 @@ AFPSLaunchPad::AFPSLaunchPad()
 
 	LPForce = 1500.f;
 
-	LPAngle = FVector(0.f, 0.f, 2.f);
+	LPAngle = 35.f;
 }
 
 void AFPSLaunchPad::HandleOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -43,7 +43,11 @@ void AFPSLaunchPad::HandleOverlap(UPrimitiveComponent* OverlappedComp, AActor* O
 	// FVector LaunchVelocity = LPForce*(MyPawn->GetActorForwardVector());
 
 	/// Permet de lancer le joueur dans la direction du launchpad 
-	FVector LaunchVelocity = LPForce * (this->GetActorForwardVector() + LPAngle);
+	/// On récupère la rotation du LP avant de lui ajouter l'angle de lancer vertical
+	/// puis on le convertit en vecteur que l'on multiplie par la force
+	FRotator LaunchDirection = GetActorRotation();
+	LaunchDirection.Pitch += LPAngle;
+	FVector LaunchVelocity = LaunchDirection.Vector() * LPForce;
 
 	ACharacter* OtherCharacter = Cast<ACharacter>(OtherActor);
 	if (OtherCharacter)
@@ -64,7 +68,7 @@ void AFPSLaunchPad::HandleOverlap(UPrimitiveComponent* OverlappedComp, AActor* O
 		OtherComp->AddImpulse
 		(
 			LaunchVelocity,
-			"none",
+			NAME_None,
 			true
 		);
 	}
