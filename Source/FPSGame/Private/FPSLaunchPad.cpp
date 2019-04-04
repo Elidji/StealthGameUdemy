@@ -19,8 +19,8 @@ AFPSLaunchPad::AFPSLaunchPad()
 	// Génération de l'overlap box
 	OverlapComp = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapComp"));
 	OverlapComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	OverlapComp->SetCollisionResponseToAllChannels(ECR_Ignore);
-	OverlapComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	/*OverlapComp->SetCollisionResponseToAllChannels(ECR_Ignore);
+	OverlapComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);*/
 	// Définie la taille de la box, si FVector n'a qu'un paramètre les 3 coordonnées ont cette valeurs = (200.f, 200.f, 200.f)
 	OverlapComp->SetBoxExtent(FVector(200.f));
 	OverlapComp->SetupAttachment(RootComponent);
