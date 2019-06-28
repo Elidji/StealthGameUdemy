@@ -67,10 +67,10 @@ void AFPSCharacter::Fire()
 	}
 
 	// try and play the sound if specified
-	if (FireSound)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
+	//if (FireSound)
+	//{
+	//	UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	//}
 
 	// try and play a firing animation if specified
 	if (FireAnimation)
