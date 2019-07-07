@@ -7,6 +7,8 @@
 #include "FPSAIGuard.generated.h"
 
 class UPawnSensingComponent;
+class UInterpToMovementComponent;
+class ATargetPoint;
 
 UENUM(BlueprintType)
 enum class EAIState : uint8
@@ -51,6 +53,31 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI")
 	void OnStateChanged(EAIState NewState);
+
+	// Challenge patrouille
+
+	/* Let the guard go on patrol */
+	UPROPERTY(EditInstanceOnly, Category = "AI")
+	bool bPatrol;
+
+	/* First of two patrol points to patrol between */
+	UPROPERTY(EditInstanceOnly, Category = "AI", meta = (EditCondition = "bPatrol"))
+	AActor* FirstPatrolPoint;
+
+	/* Second of two patrol points to patrol between */
+	UPROPERTY(EditInstanceOnly, Category = "AI", meta = (EditCondition = "bPatrol"))
+	AActor* SecondPatrolPoint;
+
+	// The current point the actor is either moving to or standing at
+	AActor* CurrentPatrolPoint;
+
+	void MoveToNextPatrolPoint();
+
+	//UPROPERTY(VisibleAnywhere, Category = "Components")
+	//UInterpToMovementComponent* InterpToMvtComp;
+
+	//UPROPERTY(EditAnywhere, Category = "AI")
+	//TArray<ATargetPoint*> TargetPoints;
 
 public:	
 	// Called every frame
