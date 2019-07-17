@@ -5,6 +5,7 @@
 #include "FPSCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
+#include "FPSGameState.h"
 
 AFPSGameMode::AFPSGameMode()
 {
@@ -14,20 +15,21 @@ AFPSGameMode::AFPSGameMode()
 
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
+
+	GameStateClass = AFPSGameState::StaticClass();
 }
 
 void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool bMissionSuccess)
 {
 	if (InstigatorPawn)
 	{
-		InstigatorPawn->DisableInput(nullptr);
 
 		if (SpectatingViewPointClass)
 		{
 			TArray<AActor*> ReturnedActor;
 			UGameplayStatics::GetAllActorsOfClass(this, SpectatingViewPointClass, ReturnedActor);
 
-			// Change viewtarget if any valid acotr found
+			// Change viewtarget if any valid actor found
 			if (ReturnedActor.Num() > 0)
 			{
 				AActor* NewViewTarget = ReturnedActor[0];
@@ -44,6 +46,12 @@ void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool bMissionSuccess)
 			UE_LOG(LogTemp, Warning, TEXT("SpectatingViewPointClass is nullptr. Please update GameMode class with valid subclass. Cannot change spectating viewpoint"));
 		}
 
+	}
+
+	AFPSGameState* GS = GetGameState<AFPSGameState>();
+	if (GS)
+	{
+		GS->MulticastOnMissionComplete(InstigatorPawn, bMissionSuccess);
 	}
 
 	OnMissionCompleted(InstigatorPawn, bMissionSuccess);
